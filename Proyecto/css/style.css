@@ -1,0 +1,316 @@
+/* ==========================================================================
+   RESET Y TIPOGRAFÍA GLOBAL
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+    scroll-behavior: smooth;
+    background-color: #050505; /* Fondo general ultra oscuro */
+    color: #E0E0E0; /* Texto gris claro para reducir fatiga visual */
+}
+
+/* ==========================================================================
+   HEADER Y NAVEGACIÓN
+   ========================================================================== */
+header {
+    background-color: rgba(5, 5, 5, 0.95);
+    padding: 1.5rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid #1A1A1A;
+}
+
+.logo h2 {
+    color: #FFFFFF;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2.5rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: #A0A0A0;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+nav a:hover {
+    color: #9D00FF; /* Violeta neón */
+    text-shadow: 0 0 10px rgba(157, 0, 255, 0.5);
+}
+
+/* ==========================================================================
+   ESTILOS GENERALES DE SECCIÓN
+   ========================================================================== */
+section {
+    padding: 7rem 5%;
+}
+
+.titulo-seccion {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3.5rem;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ==========================================================================
+   HERO SECTION (INICIO)
+   ========================================================================== */
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 3rem;
+    min-height: 80vh;
+}
+
+.hero-contenido {
+    flex: 1;
+}
+
+.hero-contenido h1 {
+    font-size: 4rem;
+    margin-bottom: 0.5rem;
+    color: #FFFFFF;
+}
+
+.hero-contenido h2 {
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: #9D00FF;
+    margin-bottom: 1.5rem;
+}
+
+.hero-texto {
+    font-size: 1.1rem;
+    color: #A0A0A0;
+    margin-bottom: 2.5rem;
+    max-width: 90%;
+}
+
+.botones-hero {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.btn-primario, .btn-secundario {
+    text-decoration: none;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+/* Botón principal Violeta */
+.btn-primario {
+    background-color: #9D00FF;
+    color: #FFFFFF;
+    box-shadow: 0 0 15px rgba(157, 0, 255, 0.3);
+}
+
+.btn-primario:hover {
+    background-color: #B026FF;
+    box-shadow: 0 0 25px rgba(157, 0, 255, 0.6);
+    transform: translateY(-2px);
+}
+
+/* Botón secundario outline oscuro */
+.btn-secundario {
+    background-color: transparent;
+    color: #FFFFFF;
+    border: 1px solid #333333;
+}
+
+.btn-secundario:hover {
+    border-color: #FF003C; /* Rojo en el hover */
+    color: #FF003C;
+    transform: translateY(-2px);
+}
+
+.hero-imagen {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.hero-imagen img {
+    border-radius: 10px;
+    width: 80%;
+    max-width: 400px;
+    object-fit: cover;
+    box-shadow: -15px 15px 0px rgba(157, 0, 255, 0.2);
+    filter: contrast(1.1) brightness(0.9);
+}
+
+/* ==========================================================================
+   SECCIÓN PORTAFOLIO
+   ========================================================================== */
+.seccion-portafolio {
+    background-color: #0A0A0A;
+    border-top: 1px solid #1A1A1A;
+    border-bottom: 1px solid #1A1A1A;
+}
+
+.grid-galeria {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.tarjeta-trabajo {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    background-color: #111111;
+}
+
+.tarjeta-trabajo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+/* Efecto Hover sobre las imágenes para mostrar el texto */
+.overlay-trabajo {
+    position: absolute;
+    bottom: -100%;
+    left: 0;
+    width: 100%;
+    padding: 2rem 1.5rem;
+    background: linear-gradient(to top, rgba(5,5,5,0.95) 0%, rgba(5,5,5,0.7) 60%, transparent 100%);
+    transition: bottom 0.4s ease;
+}
+
+.tarjeta-trabajo:hover img {
+    transform: scale(1.05);
+}
+
+.tarjeta-trabajo:hover .overlay-trabajo {
+    bottom: 0;
+}
+
+.overlay-trabajo h3 {
+    color: #FFFFFF;
+    font-size: 1.2rem;
+    margin-bottom: 0.3rem;
+}
+
+.overlay-trabajo p {
+    color: #9D00FF;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+/* ==========================================================================
+   SECCIÓN CONTACTO (INSTAGRAM)
+   ========================================================================== */
+.seccion-contacto {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.contacto-contenedor {
+    background-color: #111111;
+    padding: 4rem;
+    border-radius: 12px;
+    border: 1px solid #222222;
+    max-width: 600px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.contacto-contenedor h2 {
+    font-size: 2rem;
+    color: #FFFFFF;
+    margin-bottom: 1rem;
+}
+
+.contacto-contenedor p {
+    color: #A0A0A0;
+    margin-bottom: 2.5rem;
+}
+
+/* Botón Gigante de Instagram con transición a Rojo */
+.btn-instagram {
+    display: inline-block;
+    background-color: #9D00FF;
+    color: #FFFFFF;
+    text-decoration: none;
+    padding: 1.2rem 2.5rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border-radius: 6px;
+    transition: all 0.4s ease;
+    box-shadow: 0 0 20px rgba(157, 0, 255, 0.4);
+}
+
+.btn-instagram:hover {
+    background-color: #FF003C; /* Cambia al Rojo de acento */
+    box-shadow: 0 0 30px rgba(255, 0, 60, 0.6);
+    transform: translateY(-3px);
+}
+
+.btn-instagram span {
+    margin-right: 10px;
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+footer {
+    background-color: #050505;
+    padding: 3rem 5%;
+    text-align: center;
+    border-top: 1px solid #1A1A1A;
+}
+
+footer p {
+    color: #555555;
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+}
+
+.redes-sociales {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.redes-sociales a {
+    color: #888888;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+.redes-sociales a:hover {
+    color: #FFFFFF;
+}
