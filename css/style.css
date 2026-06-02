@@ -226,33 +226,111 @@ section {
 }
 
 /* ==========================================================================
-   SECCIÓN CONTACTO (INSTAGRAM)
+   SECCIÓN CONTACTO (FORMULARIO E INSTAGRAM)
    ========================================================================== */
 .seccion-contacto {
     display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center;
+    padding: 6rem 5%;
 }
 
-.contacto-contenedor {
+.contacto-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
     background-color: #111111;
     padding: 4rem;
     border-radius: 12px;
     border: 1px solid #222222;
-    max-width: 600px;
+    max-width: 1000px;
+    width: 100%;
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    align-items: center;
 }
 
-.contacto-contenedor h2 {
-    font-size: 2rem;
+/* --- Columna Izquierda --- */
+.contacto-info-extra h2 {
+    font-size: 2.2rem;
     color: #FFFFFF;
     margin-bottom: 1rem;
+    line-height: 1.2;
 }
 
-.contacto-contenedor p {
+.contacto-info-extra p {
     color: #A0A0A0;
     margin-bottom: 2.5rem;
+}
+
+.btn-instagram {
+    display: inline-block;
+    background-color: #9D00FF;
+    color: #FFFFFF;
+    text-decoration: none;
+    padding: 1.2rem 2.5rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border-radius: 6px;
+    transition: all 0.4s ease;
+    box-shadow: 0 0 20px rgba(157, 0, 255, 0.4);
+}
+
+.btn-instagram:hover {
+    background-color: #FF003C;
+    box-shadow: 0 0 30px rgba(255, 0, 60, 0.6);
+    transform: translateY(-3px);
+}
+
+/* --- Columna Derecha: Formulario --- */
+.grupo-input-kamel {
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.grupo-input-kamel label {
+    color: #E0E0E0;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.grupo-input-kamel input, 
+.grupo-input-kamel textarea {
+    padding: 1rem;
+    background-color: #050505;
+    border: 1px solid #333333;
+    border-radius: 5px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    color: #FFFFFF;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efecto de iluminación violeta al hacer clic en los campos de texto */
+.grupo-input-kamel input:focus, 
+.grupo-input-kamel textarea:focus {
+    outline: none;
+    border-color: #9D00FF;
+    box-shadow: 0 0 10px rgba(157, 0, 255, 0.3);
+}
+
+.btn-enviar {
+    width: 100%;
+    cursor: pointer;
+    border: none;
+    margin-top: 1rem;
+}
+
+/* --- Responsive (Ajuste para celulares) --- */
+@media (max-width: 768px) {
+    .contacto-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        text-align: center;
+        padding: 2rem;
+    }
 }
 
 /* Botón Gigante de Instagram con transición a Rojo */

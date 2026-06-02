@@ -65,16 +65,43 @@
             </div>
         </section>
 
-        <section id="contacto" class="seccion-contacto">
-            <div class="contacto-contenedor">
-                <h2>¿Listo para empezar tu comisión?</h2>
-                <p>Gestiono todas mis comisiones, dudas y cotizaciones de manera directa y personalizada a través de Instagram. Envíame un mensaje directo y hablemos de tu idea.</p>
+            <section id="contacto" class="seccion-contacto">
+            <div class="contacto-grid">
                 
-                <a href="https://www.instagram.com/matt.v_z/" target="_blank" class="btn-instagram">
-                    <span>💬</span> Enviar mensaje por Instagram
-                </a>
+                <div class="contacto-info-extra">
+                    <h2>¿Listo para empezar tu comisión?</h2>
+                    <p>Envíame un mensaje directo con los detalles de tu idea mediante el formulario, o si prefieres un trato más directo, escríbeme a Instagram.</p>
+                    
+                    <a href="https://instagram.com/TU_USUARIO_AQUI" target="_blank" class="btn-instagram">
+                        <span>💬</span> Escríbeme al Instagram
+                    </a>
+                </div>
+
+                <div class="contacto-formulario-kamel">
+                    <form action="https://formsubmit.co/mateochavez252@gmail.com" method="POST">
+                        <div class="grupo-input-kamel">
+                            <label for="nombre">Tu Nombre</label>
+                            <input type="text" id="nombre" name="nombre" required placeholder="Ej: Juan Pérez">
+                        </div>
+                        <div class="grupo-input-kamel">
+                            <label for="correo">Tu Correo Electrónico</label>
+                            <input type="email" id="correo" name="correo" required placeholder="tu.correo@gmail.com">
+                        </div>
+                        <div class="grupo-input-kamel">
+                            <label for="mensaje">Detalles de la comisión</label>
+                            <textarea id="mensaje" name="mensaje" rows="4" required placeholder="Cuéntame sobre tu proyecto, referencias, estilo..."></textarea>
+                        </div>
+                        
+                        <input type="hidden" name="_subject" value="¡Nueva solicitud de comisión en tu Portafolio!">
+                        <input type="hidden" name="_captcha" value="false">
+                        
+                        <button type="submit" class="btn-primario btn-enviar">Enviar Mensaje</button>
+                    </form>
+                </div>
+
             </div>
         </section>
+        
     </main>
 
     <footer>
