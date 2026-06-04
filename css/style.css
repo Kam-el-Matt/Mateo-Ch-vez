@@ -196,7 +196,7 @@ h1, h2, h3, .titulo-seccion {
     flex-wrap: wrap;
     justify-content: center;
     gap: 1.5rem;
-    max-width: 900px;
+    max-width: 750px; /* Redujimos esto de 900px a 750px para forzar el orden 3 y 2 */
     margin: 0 auto;
 }
 
@@ -278,7 +278,7 @@ h1, h2, h3, .titulo-seccion {
 }
 .fg::before { 
     background-image: url('../img/figma.png'); 
-    background-size: 40px; /* Figma suele verse gigante, lo reducimos un poco */
+    background-size: 25px; /* Reducido drásticamente para equilibrar su altura vertical */
 }
 .csp::before { 
     background-image: url('../img/clip_studio.png'); 
