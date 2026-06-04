@@ -1,4 +1,4 @@
-<script>
+
         function cambiarTrabajo(idBoton, rutaImagen, texto) {
             // 1. Buscamos todos los botones y les quitamos la clase 'activo'
             const botones = document.querySelectorAll('.habilidad-item');
@@ -23,4 +23,3 @@
                 visorImagen.style.opacity = 1;
             }, 200); // Tarda 0.2 segundos en cambiar para que se vea fluido
         }
-    </script>
