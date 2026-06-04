@@ -278,7 +278,7 @@ h1, h2, h3, .titulo-seccion {
 }
 .fg::before { 
     background-image: url('../img/figma.png'); 
-    background-size: 25px; /* Reducido drásticamente para equilibrar su altura vertical */
+    background-size: 20px !important; /* Obligamos al navegador a achicarlo sí o sí */
 }
 .csp::before { 
     background-image: url('../img/clip_studio.png'); 
