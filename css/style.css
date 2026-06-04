@@ -322,7 +322,7 @@ h1, h2, h3, .titulo-seccion {
 /* --- TAMAÑOS DE LOGOS MANUALES --- */
 .ps::before { background-image: url('../img/photoshop.png'); background-size: 65px; }
 .ai::before { background-image: url('../img/illustrator.png'); background-size: 65px; }
-.fg::before { background-image: url('../img/figma.png'); background-size: 20px !important; }
+.fg::before { background-image: url('../img/figma.png'); background-size: 40px !important; }
 .csp::before { background-image: url('../img/clip_studio.png'); background-size: 40px; }
 .dr::before { background-image: url('../img/davinci.png'); background-size: 50px; }
 
