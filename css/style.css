@@ -217,14 +217,16 @@ h1, h2, h3, .titulo-seccion {
 }
 
 /* El texto que va por encima */
+/* El texto que va por encima */
 .habilidad-texto {
     position: relative;
     z-index: 2; 
+    display: inline-block; /* ¡ESTA ES LA LÍNEA MÁGICA QUE FALTABA! */
     color: #FFFFFF; 
     font-weight: 600;
     font-size: 1.05rem;
     text-shadow: 0 2px 5px rgba(0,0,0,0.9);
-    transition: all 0.4s ease; /* 'all' permite animar la posición fluidamente */
+    transition: all 0.4s ease;
 }
 
 /* Magia CSS: Inyectar y estilizar los logos de fondo */
