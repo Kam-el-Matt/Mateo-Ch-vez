@@ -45,30 +45,44 @@
             </div>
         </section>
 
-<!-- Sección de Habilidades Técnicas -->
-        <section class="seccion-habilidades">
-            <h2 class="titulo-seccion">Habilidades</h2>
-            <div class="grid-stack">
+<section class="seccion-habilidades">
+            <h2 class="titulo-seccion">Habilidades & Trabajos</h2>
+            <div class="habilidades-contenedor">
                 
-                <div class="habilidad-item ps">
-                    <span class="habilidad-texto">Adobe Photoshop</span>
+                <div class="columna-botones">
+                    <div id="btn-ps" class="habilidad-item ps activo" onclick="cambiarTrabajo('btn-ps', 'img/Demonio_femboy_Kamel.jpg', 'Ilustración en Adobe Photoshop')">
+                        <span class="habilidad-texto">Adobe Photoshop</span>
+                    </div>
+                    
+                    <div id="btn-ai" class="habilidad-item ai" onclick="cambiarTrabajo('btn-ai', 'img/Recurso 2-100.jpg', 'Vectorización en Adobe Illustrator')">
+                        <span class="habilidad-texto">Adobe Illustrator</span>
+                    </div>
+                    
+                    <div id="btn-fg" class="habilidad-item fg" onclick="cambiarTrabajo('btn-fg', 'img/yanose.jpg', 'Diseño de Interfaz en Figma')">
+                        <span class="habilidad-texto">Figma</span>
+                    </div>
+                    
+                    <div id="btn-csp" class="habilidad-item csp" onclick="cambiarTrabajo('btn-csp', 'img/fanart.jpg', 'Fanart en Clip Studio Paint')">
+                        <span class="habilidad-texto">Clip Studio Paint</span>
+                    </div>
+                    
+                    <div id="btn-dr" class="habilidad-item dr" onclick="cambiarTrabajo('btn-dr', 'img/analisis-perspectiva.jpg', 'Edición en DaVinci Resolve')">
+                        <span class="habilidad-texto">DaVinci Resolve</span>
+                    </div>
                 </div>
-                <div class="habilidad-item ai">
-                    <span class="habilidad-texto">Adobe Illustrator</span>
-                </div>
-                <div class="habilidad-item fg">
-                    <span class="habilidad-texto">Figma</span>
-                </div>
-                <div class="habilidad-item csp">
-                    <span class="habilidad-texto">Clip Studio Paint</span>
-                </div>
-                <div class="habilidad-item dr">
-                    <span class="habilidad-texto">DaVinci Resolve</span>
+
+                <div class="columna-visualizador">
+                    <div class="visualizador-marco">
+                        <img id="visor-imagen" src="img/Demonio_femboy_Kamel.jpg" alt="Visualizador de proyectos">
+                        <div class="visor-info">
+                            <h3 id="visor-texto">Ilustración en Adobe Photoshop</h3>
+                        </div>
+                    </div>
                 </div>
 
             </div>
         </section>
-            </div>
+                </div>
         </section>
         <!-- Sección de Portafolio Actualizada -->
         <section id="portafolio" class="seccion-portafolio">

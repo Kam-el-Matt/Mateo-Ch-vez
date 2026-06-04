@@ -185,22 +185,37 @@ h1, h2, h3, .titulo-seccion {
 }
 
 /* ==========================================================================
-   SECCIÓN HABILIDADES (CON LOGOS DE FONDO VISIBLES)
+   SECCIÓN HABILIDADES (TABS INTERACTIVOS)
    ========================================================================== */
 .seccion-habilidades {
     background-color: #050505;
 }
 
-.grid-stack {
+/* Contenedor principal dividido en 2 columnas */
+.habilidades-contenedor {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1.5rem;
-    max-width: 750px; /* Redujimos esto de 900px a 750px para forzar el orden 3 y 2 */
+    gap: 3rem;
+    max-width: 1100px;
     margin: 0 auto;
+    align-items: flex-start;
 }
 
-/* El contenedor principal de cada tarjeta */
+/* Columna Izquierda (Botones) */
+.columna-botones {
+    flex: 1; 
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* Columna Derecha (Visualizador) */
+.columna-visualizador {
+    flex: 1.5; /* Es un poco más ancha que la de botones */
+    position: sticky;
+    top: 120px; /* Se queda fija en la pantalla si haces scroll */
+}
+
+/* --- ESTILO DE LOS BOTONES --- */
 .habilidad-item {
     position: relative; 
     background-color: #111111;
@@ -210,18 +225,16 @@ h1, h2, h3, .titulo-seccion {
     display: flex;
     align-items: center;
     justify-content: center;
-    min-width: 200px;
+    width: 100%;
     min-height: 85px;
-    transition: all 0.3s ease;
-    cursor: default;
+    cursor: pointer; /* Cursor de "mano" para indicar que se hace clic */
+    transition: all 0.4s ease;
 }
 
-/* El texto que va por encima */
-/* El texto que va por encima */
 .habilidad-texto {
     position: relative;
     z-index: 2; 
-    display: inline-block; /* ¡ESTA ES LA LÍNEA MÁGICA QUE FALTABA! */
+    display: inline-block; 
     color: #FFFFFF; 
     font-weight: 600;
     font-size: 1.05rem;
@@ -229,13 +242,13 @@ h1, h2, h3, .titulo-seccion {
     transition: all 0.4s ease;
 }
 
-/* Magia CSS: Inyectar y estilizar los logos de fondo */
+/* Logos de fondo */
 .habilidad-item::before {
     content: "";
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%) scale(1); /* Preparado para escalar de forma suave */
+    transform: translate(-50%, -50%) scale(1);
     width: 100%; 
     height: 100%;
     background-repeat: no-repeat;
@@ -246,55 +259,79 @@ h1, h2, h3, .titulo-seccion {
     z-index: 1;
 }
 
-/* Efectos al pasar el mouse por encima del cuadro (Hover) */
-.habilidad-item:hover {
+/* ¡LA MAGIA! Efectos al pasar el mouse (hover) O cuando está seleccionado (.activo) */
+.habilidad-item:hover, 
+.habilidad-item.activo {
     border-color: #9D00FF;
-    transform: translateY(-3px);
+    transform: translateX(10px); /* Ahora se mueven a la derecha en lugar de arriba */
     box-shadow: 0 5px 15px rgba(157, 0, 255, 0.2);
 }
 
-/* ¡NUEVO! El texto baja casi hasta el borde y se vuelve violeta */
-.habilidad-item:hover .habilidad-texto {
-    color: #9D00FF; 
-    transform: translateY(22px); /* Ajusta este número si quieres que baje más o menos */
+/* El botón seleccionado se hace más grande (Alto) */
+.habilidad-item.activo {
+    min-height: 120px; 
+    background-color: #150029; /* Un tono ligerísimamente violeta oscuro */
 }
 
-/* El logo crece usando 'scale' para no perder nitidez ni deformarse */
-.habilidad-item:hover::before {
+.habilidad-item:hover .habilidad-texto, 
+.habilidad-item.activo .habilidad-texto {
+    color: #9D00FF; 
+    transform: translateY(22px); 
+}
+
+.habilidad-item:hover::before, 
+.habilidad-item.activo::before {
     opacity: 0.7; 
     filter: grayscale(0%); 
     transform: translate(-50%, -50%) scale(1.25); 
 }
 
-/* --- ASIGNACIÓN Y AJUSTE MANUAL DE TAMAÑO POR LOGO --- */
-/* Modifica el 'background-size' para igualar visualmente los iconos */
-.ps::before { 
-    background-image: url('../img/photoshop.png'); 
-    background-size: 65px; /* Como el logo de PS tiene margen interno, lo hacemos más grande */
+/* --- ESTILO DEL VISUALIZADOR (DERECHA) --- */
+.visualizador-marco {
+    background-color: #111;
+    border: 1px solid #333;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: -15px 15px 0px rgba(157, 0, 255, 0.1); /* Sombra estilo bloque */
 }
-.ai::before { 
-    background-image: url('../img/illustrator.png'); 
-    background-size: 65px; 
-}
-.fg::before { 
-    background-image: url('../img/figma.png'); 
-    background-size: 20px !important; /* Obligamos al navegador a achicarlo sí o sí */
-}
-.csp::before { 
-    background-image: url('../img/clip_studio.png'); 
-    background-size: 45px; 
-}
-.dr::before { 
-    background-image: url('../img/davinci.png'); 
-    background-size: 50px; 
-}
-/* Ajuste para que las imágenes y videos del portafolio se comporten igual */
-.media-portafolio {
+
+#visor-imagen {
     width: 100%;
-    height: 100%;
+    height: 550px;
     object-fit: cover;
     display: block;
-    transition: transform 0.5s ease;
+    transition: opacity 0.3s ease; /* Transición suave al cambiar de foto */
+}
+
+.visor-info {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 2rem;
+    background: linear-gradient(to top, rgba(5,5,5,0.95) 0%, transparent 100%);
+}
+
+#visor-texto {
+    color: #FFFFFF;
+    font-size: 1.3rem;
+    margin: 0;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.9);
+}
+
+/* --- TAMAÑOS DE LOGOS MANUALES --- */
+.ps::before { background-image: url('../img/photoshop.png'); background-size: 65px; }
+.ai::before { background-image: url('../img/illustrator.png'); background-size: 65px; }
+.fg::before { background-image: url('../img/figma.png'); background-size: 20px !important; }
+.csp::before { background-image: url('../img/clip_studio.png'); background-size: 40px; }
+.dr::before { background-image: url('../img/davinci.png'); background-size: 50px; }
+
+/* Responsive para celulares (se pone uno debajo del otro de nuevo) */
+@media (max-width: 768px) {
+    .habilidades-contenedor { flex-direction: column; }
+    .columna-botones, .columna-visualizador { flex: none; width: 100%; }
+    .habilidad-item:hover, .habilidad-item.activo { transform: translateY(-3px); }
+    #visor-imagen { height: 350px; }
 }
 
 /* ==========================================================================
