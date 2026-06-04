@@ -162,6 +162,71 @@ section {
     box-shadow: -15px 15px 0px rgba(157, 0, 255, 0.2);
     filter: contrast(1.1) brightness(0.9);
 }
+/* Aplicar fuente Oswald a los encabezados para jerarquía visual */
+h1, h2, h3, .titulo-seccion {
+    font-family: 'Oswald', sans-serif;
+    letter-spacing: 1px;
+}
+
+/* ==========================================================================
+   SECCIÓN SOBRE MÍ
+   ========================================================================== */
+.seccion-sobre-mi {
+    background-color: #0A0A0A;
+}
+
+.sobre-mi-contenido {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 1.1rem;
+    color: #A0A0A0;
+    line-height: 1.8;
+}
+
+/* ==========================================================================
+   SECCIÓN STACK TECNOLÓGICO (HABILIDADES)
+   ========================================================================== */
+.seccion-habilidades {
+    background-color: #050505;
+}
+
+.grid-stack {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.habilidad-item {
+    background-color: #111111;
+    color: #9D00FF; /* Color de acento */
+    padding: 1rem 2rem;
+    border-radius: 4px;
+    border: 1px solid #222222;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.habilidad-item:hover {
+    background-color: #9D00FF;
+    color: #FFFFFF;
+    border-color: #9D00FF;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(157, 0, 255, 0.2);
+}
+
+/* Ajuste para que las imágenes y videos del portafolio se comporten igual */
+.media-portafolio {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
 
 /* ==========================================================================
    SECCIÓN PORTAFOLIO
