@@ -185,7 +185,7 @@ h1, h2, h3, .titulo-seccion {
 }
 
 /* ==========================================================================
-   SECCIÓN HABILIDADES (CON LOGOS DE FONDO)
+   SECCIÓN HABILIDADES (CON LOGOS DE FONDO VISIBLES)
    ========================================================================== */
 .seccion-habilidades {
     background-color: #050505;
@@ -202,11 +202,11 @@ h1, h2, h3, .titulo-seccion {
 
 /* El contenedor principal de cada tarjeta */
 .habilidad-item {
-    position: relative; /* Clave para que el logo se posicione adentro */
+    position: relative; 
     background-color: #111111;
     border-radius: 6px;
     border: 1px solid #222222;
-    overflow: hidden; /* Evita que el logo se salga de los bordes */
+    overflow: hidden; 
     display: flex;
     align-items: center;
     justify-content: center;
@@ -216,14 +216,14 @@ h1, h2, h3, .titulo-seccion {
     cursor: default;
 }
 
-/* El texto que va por encima (Tu color violeta eléctrico) */
+/* El texto que va por encima (Ahora es BLANCO) */
 .habilidad-texto {
     position: relative;
-    z-index: 2; /* Mantiene el texto siempre arriba del logo */
-    color: #9D00FF; 
+    z-index: 2; 
+    color: #FFFFFF; /* Letras blancas como pediste */
     font-weight: 600;
     font-size: 1.05rem;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.8); /* Sombra para máxima legibilidad */
+    text-shadow: 0 2px 5px rgba(0,0,0,0.9); /* Sombra para que se lea perfecto sobre el logo */
     transition: color 0.3s ease;
 }
 
@@ -234,13 +234,13 @@ h1, h2, h3, .titulo-seccion {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 60px; /* Tamaño del logo de fondo */
+    width: 60px; 
     height: 60px;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    opacity: 0.15; /* Opacidad baja para que se vea oscuro y sutil */
-    filter: grayscale(100%); /* Vuelve el logo blanco y negro */
+    opacity: 0.4; /* Opacidad subida para que el logo se vea claramente */
+    filter: grayscale(100%); 
     transition: all 0.4s ease;
     z-index: 1;
 }
@@ -252,25 +252,24 @@ h1, h2, h3, .titulo-seccion {
     box-shadow: 0 5px 15px rgba(157, 0, 255, 0.2);
 }
 
+/* Las letras se vuelven del violeta de tu marca al pasar el mouse */
 .habilidad-item:hover .habilidad-texto {
-    color: #FFFFFF;
+    color: #9D00FF; 
 }
 
 .habilidad-item:hover::before {
-    opacity: 0.4; /* El logo se hace un poco más visible */
+    opacity: 0.7; /* El logo resalta aún más */
     filter: grayscale(0%); /* El logo recupera su color original */
-    width: 70px; /* Crece un poquito para dar dinamismo */
+    width: 70px; 
     height: 70px;
 }
 
-/* --- ASIGNACIÓN DE LOGOS MEDIANTE URL --- */
+/* --- ASIGNACIÓN DE LOGOS MEDIANTE URL (Sin InDesign) --- */
 .ps::before { background-image: url('https://cdn.jsdelivr.net/gh/devicons/devicon/icons/photoshop/photoshop-plain.svg'); }
 .ai::before { background-image: url('https://cdn.jsdelivr.net/gh/devicons/devicon/icons/illustrator/illustrator-plain.svg'); }
-.id::before { background-image: url('https://cdn.jsdelivr.net/gh/devicons/devicon/icons/indesign/indesign-plain.svg'); }
 .fg::before { background-image: url('https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg'); }
 .csp::before { background-image: url('https://upload.wikimedia.org/wikipedia/commons/e/e0/Clip_Studio_Paint_logo.png'); }
 .dr::before { background-image: url('https://upload.wikimedia.org/wikipedia/commons/4/4c/DaVinci_Resolve_Studio.png'); }
-
 /* Ajuste para que las imágenes y videos del portafolio se comporten igual */
 .media-portafolio {
     width: 100%;
