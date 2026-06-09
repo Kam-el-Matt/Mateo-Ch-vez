@@ -185,31 +185,38 @@ section {
 }
 
 /* ==========================================================================
-   SECCIÓN HABILIDADES (TABS INTERACTIVOS CENTRADOS)
+   SECCIÓN HABILIDADES (DOS COLUMNAS)
    ========================================================================== */
 .seccion-habilidades {
     background-color: #050505;
 }
 
+/* El contenedor principal ahora usa row para poner las cosas lado a lado */
 .habilidades-contenedor {
     display: flex;
-    flex-direction: column;
-    align-items: center; 
+    flex-direction: row; 
+    align-items: flex-start; 
     gap: 3rem;
-    max-width: 1000px;
+    max-width: 1100px;
     margin: 0 auto;
 }
 
-/* Grupo de botones en rejilla fluida (3 arriba, 2 abajo) */
-.grupo-botones-cluster {
+/* Columna Izquierda (Ocupa menos espacio) */
+.columna-botones {
+    flex: 1; 
     display: flex;
-    flex-wrap: wrap; 
-    justify-content: center;
-    gap: 1.5rem;
-    max-width: 750px;
+    flex-direction: column; 
+    gap: 1.2rem;
 }
 
-/* Estilo de las tarjetas de habilidad */
+/* Columna Derecha (Ocupa más espacio) */
+.columna-visualizador {
+    flex: 2.2; 
+    position: sticky; /* Hace que la imagen baje contigo si haces scroll */
+    top: 100px; 
+}
+
+/* Estilo de los botones */
 .habilidad-item {
     position: relative; 
     background-color: #111111;
@@ -219,8 +226,8 @@ section {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 220px; 
-    height: 70px; 
+    width: 100%; /* Ocupan todo el ancho de su columna */
+    height: 75px; 
     cursor: pointer;
     transition: all 0.4s ease;
 }
@@ -253,13 +260,18 @@ section {
     z-index: 1;
 }
 
-/* Efectos al pasar el mouse (hover) o cuando está seleccionado (.activo) */
+/* EFECTO: Ahora se mueven a la DERECHA en vez de arriba */
 .habilidad-item:hover, 
 .habilidad-item.activo {
     border-color: #9D00FF;
-    transform: translateY(-5px);
+    transform: translateX(10px); 
     box-shadow: 0 5px 15px rgba(157, 0, 255, 0.2);
     background-color: #150029; 
+}
+
+/* El botón activo se hace un poco más alto para resaltar */
+.habilidad-item.activo {
+    height: 90px;
 }
 
 .habilidad-item:hover .habilidad-texto, 
@@ -275,11 +287,7 @@ section {
     transform: translate(-50%, -50%) scale(1.25); 
 }
 
-/* Estilo del visualizador central abajo */
-.visualizador-abajo {
-    width: 100%;
-}
-
+/* Estilo del Marco de la Imagen */
 .visualizador-marco {
     background-color: #111;
     border: 1px solid #333;
@@ -291,7 +299,7 @@ section {
 
 #visor-imagen {
     width: 100%;
-    height: 600px;
+    height: 600px; /* Alto de la imagen */
     object-fit: cover;
     display: block;
     transition: opacity 0.3s ease;
@@ -312,17 +320,23 @@ section {
     text-shadow: 0 2px 6px rgba(0,0,0,0.9);
 }
 
-/* Asignación y escala manual por cada logo (Rutas relativas desde la carpeta css/) */
+/* Asignación manual de logos */
 .ps::before { background-image: url('../img/habilidades/photoshop.png'); background-size: 65px; }
 .ai::before { background-image: url('../img/habilidades/illustrator.png'); background-size: 65px; }
 .fg::before { background-image: url('../img/habilidades/figma.png'); background-size: 40px !important; }
 .csp::before { background-image: url('../img/habilidades/clip_studio.png'); background-size: 40px; }
 .dr::before { background-image: url('../img/habilidades/davinci.png'); background-size: 50px; }
 
-/* Responsive para la sección habilidades */
+/* Responsive para celulares (se pone uno debajo del otro) */
 @media (max-width: 768px) {
-    .habilidad-item {
-        width: 100%; 
+    .habilidades-contenedor {
+        flex-direction: column; 
+    }
+    .habilidad-item:hover, .habilidad-item.activo { 
+        transform: translateY(-5px); /* Vuelve a saltar hacia arriba en celular */
+    }
+    .columna-visualizador {
+        position: static;
     }
     #visor-imagen { height: 350px; }
 }
