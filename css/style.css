@@ -11,8 +11,13 @@ body {
     font-family: 'Montserrat', sans-serif;
     line-height: 1.6;
     scroll-behavior: smooth;
-    background-color: #050505; /* Fondo general ultra oscuro */
-    color: #E0E0E0; /* Texto gris claro para reducir fatiga visual */
+    background-color: #050505; 
+    color: #E0E0E0; 
+}
+
+h1, h2, h3, .titulo-seccion {
+    font-family: 'Oswald', sans-serif;
+    letter-spacing: 1px;
 }
 
 /* ==========================================================================
@@ -52,7 +57,7 @@ nav a {
 }
 
 nav a:hover {
-    color: #9D00FF; /* Violeta neón */
+    color: #9D00FF; 
     text-shadow: 0 0 10px rgba(157, 0, 255, 0.5);
 }
 
@@ -69,7 +74,6 @@ section {
     margin-bottom: 3.5rem;
     color: #FFFFFF;
     text-transform: uppercase;
-    letter-spacing: 1px;
 }
 
 /* ==========================================================================
@@ -122,7 +126,6 @@ section {
     text-align: center;
 }
 
-/* Botón principal Violeta */
 .btn-primario {
     background-color: #9D00FF;
     color: #FFFFFF;
@@ -135,7 +138,6 @@ section {
     transform: translateY(-2px);
 }
 
-/* Botón secundario outline oscuro */
 .btn-secundario {
     background-color: transparent;
     color: #FFFFFF;
@@ -143,7 +145,7 @@ section {
 }
 
 .btn-secundario:hover {
-    border-color: #FF003C; /* Rojo en el hover */
+    border-color: #FF003C; 
     color: #FF003C;
     transform: translateY(-2px);
 }
@@ -160,12 +162,6 @@ section {
     max-width: 400px;
     object-fit: cover;
     box-shadow: -15px 15px 0px rgba(157, 0, 255, 0.2);
-    filter: contrast(1.1) brightness(0.9);
-}
-/* Aplicar fuente Oswald a los encabezados para jerarquía visual */
-h1, h2, h3, .titulo-seccion {
-    font-family: 'Oswald', sans-serif;
-    letter-spacing: 1px;
 }
 
 /* ==========================================================================
@@ -191,7 +187,6 @@ h1, h2, h3, .titulo-seccion {
     background-color: #050505;
 }
 
-/* Contenedor principal dividido en 2 columnas */
 .habilidades-contenedor {
     display: flex;
     gap: 3rem;
@@ -200,7 +195,6 @@ h1, h2, h3, .titulo-seccion {
     align-items: flex-start;
 }
 
-/* Columna Izquierda (Botones) */
 .columna-botones {
     flex: 1; 
     display: flex;
@@ -208,14 +202,12 @@ h1, h2, h3, .titulo-seccion {
     gap: 1rem;
 }
 
-/* Columna Derecha (Visualizador) */
 .columna-visualizador {
-    flex: 1.5; /* Es un poco más ancha que la de botones */
+    flex: 1.5; 
     position: sticky;
-    top: 120px; /* Se queda fija en la pantalla si haces scroll */
+    top: 120px; 
 }
 
-/* --- ESTILO DE LOS BOTONES --- */
 .habilidad-item {
     position: relative; 
     background-color: #111111;
@@ -227,7 +219,7 @@ h1, h2, h3, .titulo-seccion {
     justify-content: center;
     width: 100%;
     min-height: 85px;
-    cursor: pointer; /* Cursor de "mano" para indicar que se hace clic */
+    cursor: pointer; 
     transition: all 0.4s ease;
 }
 
@@ -242,7 +234,6 @@ h1, h2, h3, .titulo-seccion {
     transition: all 0.4s ease;
 }
 
-/* Logos de fondo */
 .habilidad-item::before {
     content: "";
     position: absolute;
@@ -259,18 +250,16 @@ h1, h2, h3, .titulo-seccion {
     z-index: 1;
 }
 
-/* ¡LA MAGIA! Efectos al pasar el mouse (hover) O cuando está seleccionado (.activo) */
 .habilidad-item:hover, 
 .habilidad-item.activo {
     border-color: #9D00FF;
-    transform: translateX(10px); /* Ahora se mueven a la derecha en lugar de arriba */
+    transform: translateX(10px); 
     box-shadow: 0 5px 15px rgba(157, 0, 255, 0.2);
 }
 
-/* El botón seleccionado se hace más grande (Alto) */
 .habilidad-item.activo {
     min-height: 120px; 
-    background-color: #150029; /* Un tono ligerísimamente violeta oscuro */
+    background-color: #150029; 
 }
 
 .habilidad-item:hover .habilidad-texto, 
@@ -286,22 +275,23 @@ h1, h2, h3, .titulo-seccion {
     transform: translate(-50%, -50%) scale(1.25); 
 }
 
-/* --- ESTILO DEL VISUALIZADOR (DERECHA) --- */
 .visualizador-marco {
     background-color: #111;
     border: 1px solid #333;
     border-radius: 8px;
     overflow: hidden;
     position: relative;
-    box-shadow: -15px 15px 0px rgba(157, 0, 255, 0.1); /* Sombra estilo bloque */
+    box-shadow: -15px 15px 0px rgba(157, 0, 255, 0.1); 
 }
 
+/* Filtro brightness para oscurecer la imagen y destacar el texto */
 #visor-imagen {
     width: 100%;
     height: 550px;
     object-fit: cover;
     display: block;
-    transition: opacity 0.3s ease; /* Transición suave al cambiar de foto */
+    filter: brightness(0.5) contrast(1.1); 
+    transition: opacity 0.3s ease; 
 }
 
 .visor-info {
@@ -319,20 +309,12 @@ h1, h2, h3, .titulo-seccion {
     text-shadow: 0 2px 6px rgba(0,0,0,0.9);
 }
 
-/* --- TAMAÑOS DE LOGOS MANUALES --- */
+/* URLs manuales exactas a la carpeta de imágenes */
 .ps::before { background-image: url('../img/photoshop.png'); background-size: 65px; }
 .ai::before { background-image: url('../img/illustrator.png'); background-size: 65px; }
-.fg::before { background-image: url('../img/figma.png'); background-size: 40px !important; }
+.fg::before { background-image: url('../img/figma.png'); background-size: 20px !important; }
 .csp::before { background-image: url('../img/clip_studio.png'); background-size: 40px; }
 .dr::before { background-image: url('../img/davinci.png'); background-size: 50px; }
-
-/* Responsive para celulares (se pone uno debajo del otro de nuevo) */
-@media (max-width: 768px) {
-    .habilidades-contenedor { flex-direction: column; }
-    .columna-botones, .columna-visualizador { flex: none; width: 100%; }
-    .habilidad-item:hover, .habilidad-item.activo { transform: translateY(-3px); }
-    #visor-imagen { height: 350px; }
-}
 
 /* ==========================================================================
    SECCIÓN PORTAFOLIO
@@ -357,7 +339,7 @@ h1, h2, h3, .titulo-seccion {
     background-color: #111111;
 }
 
-.tarjeta-trabajo img {
+.media-portafolio {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -365,7 +347,6 @@ h1, h2, h3, .titulo-seccion {
     transition: transform 0.5s ease;
 }
 
-/* Efecto Hover sobre las imágenes para mostrar el texto */
 .overlay-trabajo {
     position: absolute;
     bottom: -100%;
@@ -376,7 +357,7 @@ h1, h2, h3, .titulo-seccion {
     transition: bottom 0.4s ease;
 }
 
-.tarjeta-trabajo:hover img {
+.tarjeta-trabajo:hover .media-portafolio {
     transform: scale(1.05);
 }
 
@@ -420,7 +401,6 @@ h1, h2, h3, .titulo-seccion {
     align-items: center;
 }
 
-/* --- Columna Izquierda --- */
 .contacto-info-extra h2 {
     font-size: 2.2rem;
     color: #FFFFFF;
@@ -452,7 +432,6 @@ h1, h2, h3, .titulo-seccion {
     transform: translateY(-3px);
 }
 
-/* --- Columna Derecha: Formulario --- */
 .grupo-input-kamel {
     margin-bottom: 1.5rem;
     display: flex;
@@ -479,7 +458,6 @@ h1, h2, h3, .titulo-seccion {
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Efecto de iluminación violeta al hacer clic en los campos de texto */
 .grupo-input-kamel input:focus, 
 .grupo-input-kamel textarea:focus {
     outline: none;
@@ -492,40 +470,6 @@ h1, h2, h3, .titulo-seccion {
     cursor: pointer;
     border: none;
     margin-top: 1rem;
-}
-
-/* --- Responsive (Ajuste para celulares) --- */
-@media (max-width: 768px) {
-    .contacto-grid {
-        grid-template-columns: 1fr;
-        gap: 3rem;
-        text-align: center;
-        padding: 2rem;
-    }
-}
-
-/* Botón Gigante de Instagram con transición a Rojo */
-.btn-instagram {
-    display: inline-block;
-    background-color: #9D00FF;
-    color: #FFFFFF;
-    text-decoration: none;
-    padding: 1.2rem 2.5rem;
-    font-size: 1.1rem;
-    font-weight: 700;
-    border-radius: 6px;
-    transition: all 0.4s ease;
-    box-shadow: 0 0 20px rgba(157, 0, 255, 0.4);
-}
-
-.btn-instagram:hover {
-    background-color: #FF003C; /* Cambia al Rojo de acento */
-    box-shadow: 0 0 30px rgba(255, 0, 60, 0.6);
-    transform: translateY(-3px);
-}
-
-.btn-instagram span {
-    margin-right: 10px;
 }
 
 /* ==========================================================================
@@ -562,4 +506,21 @@ footer p {
 
 .redes-sociales a:hover {
     color: #FFFFFF;
+}
+
+/* ==========================================================================
+   RESPONSIVE (PARA CELULARES)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .habilidades-contenedor { flex-direction: column; }
+    .columna-botones, .columna-visualizador { flex: none; width: 100%; }
+    .habilidad-item:hover, .habilidad-item.activo { transform: translateY(-3px); }
+    #visor-imagen { height: 350px; }
+    
+    .contacto-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        text-align: center;
+        padding: 2rem;
+    }
 }
