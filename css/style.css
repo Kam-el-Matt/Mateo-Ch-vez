@@ -163,15 +163,13 @@ section {
     border-radius: 10px;
     width: 80%;
     max-width: 400px;
-    
-    /* ESTA ES LA SOLUCIÓN: Congela la caja en un cuadrado perfecto (1 de ancho x 1 de alto) */
-    aspect-ratio: 1 / 1; 
-    
+    aspect-ratio: 1 / 1; /* Mantiene proporciones idénticas en el slider */
     object-fit: cover;
     box-shadow: -15px 15px 0px rgba(157, 0, 255, 0.2);
     filter: contrast(1.1) brightness(0.9);
     transition: opacity 0.5s ease; 
 }
+
 /* ==========================================================================
    SECCIÓN SOBRE MÍ
    ========================================================================== */
@@ -195,7 +193,6 @@ section {
     background-color: #050505;
 }
 
-/* El contenedor principal ahora usa row para poner las cosas lado a lado */
 .habilidades-contenedor {
     display: flex;
     flex-direction: row; 
@@ -205,7 +202,6 @@ section {
     margin: 0 auto;
 }
 
-/* Columna Izquierda (Ocupa menos espacio) */
 .columna-botones {
     flex: 1; 
     display: flex;
@@ -213,14 +209,12 @@ section {
     gap: 1.2rem;
 }
 
-/* Columna Derecha (Ocupa más espacio) */
 .columna-visualizador {
     flex: 2.2; 
-    position: sticky; /* Hace que la imagen baje contigo si haces scroll */
+    position: sticky; 
     top: 100px; 
 }
 
-/* Estilo de los botones */
 .habilidad-item {
     position: relative; 
     background-color: #111111;
@@ -230,7 +224,7 @@ section {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100%; /* Ocupan todo el ancho de su columna */
+    width: 100%; 
     height: 75px; 
     cursor: pointer;
     transition: all 0.4s ease;
@@ -247,7 +241,6 @@ section {
     transition: all 0.4s ease;
 }
 
-/* Logos de fondo en blanco y negro */
 .habilidad-item::before {
     content: "";
     position: absolute;
@@ -264,7 +257,6 @@ section {
     z-index: 1;
 }
 
-/* EFECTO: Ahora se mueven a la DERECHA en vez de arriba */
 .habilidad-item:hover, 
 .habilidad-item.activo {
     border-color: #9D00FF;
@@ -273,7 +265,6 @@ section {
     background-color: #150029; 
 }
 
-/* El botón activo se hace un poco más alto para resaltar */
 .habilidad-item.activo {
     height: 90px;
 }
@@ -291,7 +282,6 @@ section {
     transform: translate(-50%, -50%) scale(1.25); 
 }
 
-/* Estilo del Marco de la Imagen */
 .visualizador-marco {
     background-color: #111;
     border: 1px solid #333;
@@ -303,7 +293,7 @@ section {
 
 #visor-imagen {
     width: 100%;
-    height: 600px; /* Alto de la imagen */
+    height: 600px; 
     object-fit: cover;
     display: block;
     transition: opacity 0.3s ease;
@@ -331,17 +321,10 @@ section {
 .csp::before { background-image: url('../img/habilidades/clip_studio.png'); background-size: 40px; }
 .dr::before { background-image: url('../img/habilidades/davinci.png'); background-size: 50px; }
 
-/* Responsive para celulares (se pone uno debajo del otro) */
 @media (max-width: 768px) {
-    .habilidades-contenedor {
-        flex-direction: column; 
-    }
-    .habilidad-item:hover, .habilidad-item.activo { 
-        transform: translateY(-5px); /* Vuelve a saltar hacia arriba en celular */
-    }
-    .columna-visualizador {
-        position: static;
-    }
+    .habilidades-contenedor { flex-direction: column; }
+    .habilidad-item:hover, .habilidad-item.activo { transform: translateY(-5px); }
+    .columna-visualizador { position: static; }
     #visor-imagen { height: 350px; }
 }
 
@@ -407,7 +390,7 @@ section {
 }
 
 /* ==========================================================================
-   SECCIÓN CONTACTO (FORMULARIO E INSTAGRAM)
+   SECCIÓN CONTACTO (FORMULARIO E INSTAGRAM / WHATSAPP)
    ========================================================================== */
 .seccion-contacto {
     display: flex;
@@ -442,10 +425,17 @@ section {
     margin-bottom: 2.5rem;
 }
 
-/* Botón Gigante de Instagram con transición a Rojo */
-.btn-instagram {
+/* Contenedor vertical para agrupar las redes sociales */
+.contacto-botones {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    align-items: flex-start;
+}
+
+/* Estilo base común para botones de redes grandes */
+.btn-instagram, .btn-whatsapp {
     display: inline-block;
-    background-color: #9D00FF;
     color: #FFFFFF;
     text-decoration: none;
     padding: 1.2rem 2.5rem;
@@ -453,19 +443,38 @@ section {
     font-weight: 700;
     border-radius: 6px;
     transition: all 0.4s ease;
+    width: auto;
+}
+
+.btn-instagram span, .btn-whatsapp span {
+    margin-right: 10px;
+}
+
+/* Personalización del Botón de Instagram */
+.btn-instagram {
+    background-color: #9D00FF;
     box-shadow: 0 0 20px rgba(157, 0, 255, 0.4);
 }
 
 .btn-instagram:hover {
-    background-color: #FF003C; /* Rojo de acento secundario */
+    background-color: #FF003C; /* Rojo en hover */
     box-shadow: 0 0 30px rgba(255, 0, 60, 0.6);
     transform: translateY(-3px);
 }
 
-.btn-instagram span {
-    margin-right: 10px;
+/* Personalización del Botón de WhatsApp */
+.btn-whatsapp {
+    background-color: #25D366; /* Verde oficial */
+    box-shadow: 0 0 20px rgba(37, 211, 102, 0.4);
 }
 
+.btn-whatsapp:hover {
+    background-color: #9D00FF; /* Cambia a violeta neón en hover */
+    box-shadow: 0 0 30px rgba(157, 0, 255, 0.6);
+    transform: translateY(-3px);
+}
+
+/* Formulario */
 .grupo-input-kamel {
     margin-bottom: 1.5rem;
     display: flex;
@@ -506,13 +515,21 @@ section {
     margin-top: 1rem;
 }
 
-/* Responsive del Formulario */
+/* Responsive para la sección de contacto */
 @media (max-width: 768px) {
     .contacto-grid {
         grid-template-columns: 1fr;
         gap: 3rem;
         text-align: center;
         padding: 2rem;
+    }
+    .contacto-botones {
+        align-items: center;
+        width: 100%;
+    }
+    .btn-instagram, .btn-whatsapp {
+        width: 100%; /* Botón completo en pantallas móviles */
+        max-width: 320px;
     }
 }
 
@@ -551,4 +568,3 @@ footer p {
 .redes-sociales a:hover {
     color: #FFFFFF;
 }
-/*finalon*/
