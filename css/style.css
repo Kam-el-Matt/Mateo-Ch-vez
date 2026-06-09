@@ -11,10 +11,11 @@ body {
     font-family: 'Montserrat', sans-serif;
     line-height: 1.6;
     scroll-behavior: smooth;
-    background-color: #050505; 
-    color: #E0E0E0; 
+    background-color: #050505; /* Fondo general ultra oscuro */
+    color: #E0E0E0; /* Texto gris claro para reducir fatiga visual */
 }
 
+/* Aplicar fuente Oswald a los encabezados para jerarquía visual */
 h1, h2, h3, .titulo-seccion {
     font-family: 'Oswald', sans-serif;
     letter-spacing: 1px;
@@ -57,7 +58,7 @@ nav a {
 }
 
 nav a:hover {
-    color: #9D00FF; 
+    color: #9D00FF; /* Violeta neón */
     text-shadow: 0 0 10px rgba(157, 0, 255, 0.5);
 }
 
@@ -126,6 +127,7 @@ section {
     text-align: center;
 }
 
+/* Botón principal Violeta */
 .btn-primario {
     background-color: #9D00FF;
     color: #FFFFFF;
@@ -138,6 +140,7 @@ section {
     transform: translateY(-2px);
 }
 
+/* Botón secundario outline oscuro */
 .btn-secundario {
     background-color: transparent;
     color: #FFFFFF;
@@ -145,7 +148,7 @@ section {
 }
 
 .btn-secundario:hover {
-    border-color: #FF003C; 
+    border-color: #FF003C; /* Rojo en el hover */
     color: #FF003C;
     transform: translateY(-2px);
 }
@@ -162,6 +165,7 @@ section {
     max-width: 400px;
     object-fit: cover;
     box-shadow: -15px 15px 0px rgba(157, 0, 255, 0.2);
+    filter: contrast(1.1) brightness(0.9);
 }
 
 /* ==========================================================================
@@ -181,38 +185,46 @@ section {
 }
 
 /* ==========================================================================
-   SECCIÓN HABILIDADES (CUADRÍCULA RESTAURADA)
+   SECCIÓN HABILIDADES (TABS INTERACTIVOS CENTRADOS)
    ========================================================================== */
 .seccion-habilidades {
     background-color: #050505;
 }
 
-.grid-stack {
+.habilidades-contenedor {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1.5rem;
-    max-width: 750px; 
+    flex-direction: column;
+    align-items: center; 
+    gap: 3rem;
+    max-width: 1000px;
     margin: 0 auto;
 }
 
-/* Contenedor principal de cada tarjeta */
+/* Grupo de botones en rejilla fluida (3 arriba, 2 abajo) */
+.grupo-botones-cluster {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center;
+    gap: 1.5rem;
+    max-width: 750px;
+}
+
+/* Estilo de las tarjetas de habilidad */
 .habilidad-item {
     position: relative; 
     background-color: #111111;
-    border-radius: 6px;
+    border-radius: 8px;
     border: 1px solid #222222;
     overflow: hidden; 
     display: flex;
     align-items: center;
     justify-content: center;
-    min-width: 200px;
-    min-height: 85px;
-    transition: all 0.3s ease;
-    cursor: default;
+    width: 220px; 
+    height: 70px; 
+    cursor: pointer;
+    transition: all 0.4s ease;
 }
 
-/* El texto que va por encima */
 .habilidad-texto {
     position: relative;
     z-index: 2; 
@@ -224,13 +236,13 @@ section {
     transition: all 0.4s ease;
 }
 
-/* Magia CSS: Logos de fondo */
+/* Logos de fondo en blanco y negro */
 .habilidad-item::before {
     content: "";
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%) scale(1); 
+    transform: translate(-50%, -50%) scale(1);
     width: 100%; 
     height: 100%;
     background-repeat: no-repeat;
@@ -241,33 +253,82 @@ section {
     z-index: 1;
 }
 
-/* Efectos al pasar el mouse (Hover) */
-.habilidad-item:hover {
+/* Efectos al pasar el mouse (hover) o cuando está seleccionado (.activo) */
+.habilidad-item:hover, 
+.habilidad-item.activo {
     border-color: #9D00FF;
-    transform: translateY(-3px);
+    transform: translateY(-5px);
     box-shadow: 0 5px 15px rgba(157, 0, 255, 0.2);
+    background-color: #150029; 
 }
 
-.habilidad-item:hover .habilidad-texto {
+.habilidad-item:hover .habilidad-texto, 
+.habilidad-item.activo .habilidad-texto {
     color: #9D00FF; 
     transform: translateY(22px); 
 }
 
-.habilidad-item:hover::before {
+.habilidad-item:hover::before, 
+.habilidad-item.activo::before {
     opacity: 0.7; 
     filter: grayscale(0%); 
     transform: translate(-50%, -50%) scale(1.25); 
 }
 
-/* Asignación y tamaño manual por logo */
-.ps::before { background-image: url('../img/photoshop.png'); background-size: 65px; }
-.ai::before { background-image: url('../img/illustrator.png'); background-size: 65px; }
-.fg::before { background-image: url('../img/figma.png'); background-size: 20px !important; }
-.csp::before { background-image: url('../img/clip_studio.png'); background-size: 40px; }
-.dr::before { background-image: url('../img/davinci.png'); background-size: 50px; }
+/* Estilo del visualizador central abajo */
+.visualizador-abajo {
+    width: 100%;
+}
+
+.visualizador-marco {
+    background-color: #111;
+    border: 1px solid #333;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5); 
+}
+
+#visor-imagen {
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+    display: block;
+    transition: opacity 0.3s ease;
+}
+
+.visor-info {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 2rem;
+    background: linear-gradient(to top, rgba(5,5,5,0.95) 0%, transparent 100%);
+}
+
+#visor-texto {
+    color: #FFFFFF;
+    font-size: 1.3rem;
+    margin: 0;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.9);
+}
+
+/* Asignación y escala manual por cada logo (Rutas relativas desde la carpeta css/) */
+.ps::before { background-image: url('../img/habilidades/photoshop.png'); background-size: 65px; }
+.ai::before { background-image: url('../img/habilidades/illustrator.png'); background-size: 65px; }
+.fg::before { background-image: url('../img/habilidades/figma.png'); background-size: 40px !important; }
+.csp::before { background-image: url('../img/habilidades/clip_studio.png'); background-size: 40px; }
+.dr::before { background-image: url('../img/habilidades/davinci.png'); background-size: 50px; }
+
+/* Responsive para la sección habilidades */
+@media (max-width: 768px) {
+    .habilidad-item {
+        width: 100%; 
+    }
+    #visor-imagen { height: 350px; }
+}
 
 /* ==========================================================================
-   SECCIÓN PORTAFOLIO
+   SECCIÓN PORTAFOLIO (GALERÍA DE PROYECTOS DESTACADOS)
    ========================================================================== */
 .seccion-portafolio {
     background-color: #0A0A0A;
@@ -363,6 +424,7 @@ section {
     margin-bottom: 2.5rem;
 }
 
+/* Botón Gigante de Instagram con transición a Rojo */
 .btn-instagram {
     display: inline-block;
     background-color: #9D00FF;
@@ -377,9 +439,13 @@ section {
 }
 
 .btn-instagram:hover {
-    background-color: #FF003C;
+    background-color: #FF003C; /* Rojo de acento secundario */
     box-shadow: 0 0 30px rgba(255, 0, 60, 0.6);
     transform: translateY(-3px);
+}
+
+.btn-instagram span {
+    margin-right: 10px;
 }
 
 .grupo-input-kamel {
@@ -422,6 +488,16 @@ section {
     margin-top: 1rem;
 }
 
+/* Responsive del Formulario */
+@media (max-width: 768px) {
+    .contacto-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        text-align: center;
+        padding: 2rem;
+    }
+}
+
 /* ==========================================================================
    FOOTER
    ========================================================================== */
@@ -456,16 +532,4 @@ footer p {
 
 .redes-sociales a:hover {
     color: #FFFFFF;
-}
-
-/* ==========================================================================
-   RESPONSIVE (PARA CELULARES)
-   ========================================================================== */
-@media (max-width: 768px) {
-    .contacto-grid {
-        grid-template-columns: 1fr;
-        gap: 3rem;
-        text-align: center;
-        padding: 2rem;
-    }
 }
