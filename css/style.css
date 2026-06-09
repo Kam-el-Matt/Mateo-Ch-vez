@@ -163,10 +163,13 @@ section {
     border-radius: 10px;
     width: 80%;
     max-width: 400px;
+    
+    /* ESTA ES LA SOLUCIÓN: Congela la caja en un cuadrado perfecto (1 de ancho x 1 de alto) */
+    aspect-ratio: 1 / 1; 
+    
     object-fit: cover;
     box-shadow: -15px 15px 0px rgba(157, 0, 255, 0.2);
     filter: contrast(1.1) brightness(0.9);
-    /* Esta línea hace que la desaparición/aparición sea suave */
     transition: opacity 0.5s ease; 
 }
 /* ==========================================================================
