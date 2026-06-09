@@ -6,7 +6,6 @@
     <title>Kamel | Comisiones de Arte y Multimedia</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-    <script src="script.js"></script>
 </head>
 <body>
 
@@ -25,6 +24,7 @@
     </header>
 
     <main>
+        <!-- Hero Section -->
         <section id="inicio" class="hero">
             <div class="hero-contenido">
                 <h1>Hola, soy Mateo</h1>
@@ -40,6 +40,7 @@
             </div>
         </section>
 
+        <!-- Sección Sobre Mí -->
         <section id="sobre-mi" class="seccion-sobre-mi">
             <h2 class="titulo-seccion">Sobre Mí</h2>
             <div class="sobre-mi-contenido">
@@ -47,44 +48,35 @@
             </div>
         </section>
 
+        <!-- Sección de Habilidades (Diseño en Cuadrícula Restaurado) -->
         <section class="seccion-habilidades">
-            <h2 class="titulo-seccion">Habilidades & Trabajos</h2>
-            <div class="habilidades-contenedor">
+            <h2 class="titulo-seccion">Habilidades</h2>
+            <div class="grid-stack">
                 
-                <div class="columna-botones">
-                    <div id="btn-ps" class="habilidad-item ps activo" onclick="cambiarTrabajo('btn-ps', 'img/Demonio_femboy_Kamel.jpg', 'Ilustración en Adobe Photoshop')">
-                        <span class="habilidad-texto">Adobe Photoshop</span>
-                    </div>
-                    
-                    <div id="btn-ai" class="habilidad-item ai" onclick="cambiarTrabajo('btn-ai', 'img/LEMUR RGB_page-0001.jpg', 'Vectorización en Adobe Illustrator')">
-                        <span class="habilidad-texto">Adobe Illustrator</span>
-                    </div>
-                    
-                    <div id="btn-fg" class="habilidad-item fg" onclick="cambiarTrabajo('btn-fg', 'img/figmavelange.png', 'Diseño de Interfaz en Figma')">
-                        <span class="habilidad-texto">Figma</span>
-                    </div>
-                    
-                    <div id="btn-csp" class="habilidad-item csp" onclick="cambiarTrabajo('btn-csp', 'img/fanart.jpg', 'Fanart en Clip Studio Paint')">
-                        <span class="habilidad-texto">Clip Studio Paint</span>
-                    </div>
-                    
-                    <div id="btn-dr" class="habilidad-item dr" onclick="cambiarTrabajo('btn-dr', 'img/davin.png', 'Edición en DaVinci Resolve')">
-                        <span class="habilidad-texto">DaVinci Resolve</span>
-                    </div>
+                <div class="habilidad-item ps">
+                    <span class="habilidad-texto">Adobe Photoshop</span>
                 </div>
-
-                <div class="columna-visualizador">
-                    <div class="visualizador-marco">
-                        <img id="visor-imagen" src="img/Demonio_femboy_Kamel.jpg" alt="Visualizador de proyectos">
-                        <div class="visor-info">
-                            <h3 id="visor-texto">Ilustración en Adobe Photoshop</h3>
-                        </div>
-                    </div>
+                
+                <div class="habilidad-item ai">
+                    <span class="habilidad-texto">Adobe Illustrator</span>
+                </div>
+                
+                <div class="habilidad-item fg">
+                    <span class="habilidad-texto">Figma</span>
+                </div>
+                
+                <div class="habilidad-item csp">
+                    <span class="habilidad-texto">Clip Studio Paint</span>
+                </div>
+                
+                <div class="habilidad-item dr">
+                    <span class="habilidad-texto">DaVinci Resolve</span>
                 </div>
 
             </div>
         </section>
 
+        <!-- Sección de Portafolio -->
         <section id="portafolio" class="seccion-portafolio">
             <h2 class="titulo-seccion">Proyectos Destacados</h2>
             <div class="grid-galeria">
@@ -115,9 +107,18 @@
                     </div>
                 </article>
 
+                <article class="tarjeta-trabajo">
+                    <img src="img/Demonio_femboy_Kamel.jpg" alt="Ilustración Photoshop" class="media-portafolio">
+                    <div class="overlay-trabajo">
+                        <h3>Ilustración Digital</h3>
+                        <p>Arte conceptual y personajes</p>
+                    </div>
+                </article>
+
             </div>
         </section>
 
+        <!-- Sección de Contacto -->
         <section id="contacto" class="seccion-contacto">
             <div class="contacto-grid">
                 
